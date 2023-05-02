@@ -1,4 +1,4 @@
-# IpChangeDetector
+# DomainSync
 
 Este programa notificara con un email que la IP publica ha cambiado.
 
