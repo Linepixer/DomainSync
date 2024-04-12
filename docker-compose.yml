@@ -1,0 +1,7 @@
+services:
+  domain-sync:
+    image: domain_sync:latest
+    restart: on-failure
+    environment:
+      - PUBLIC_KEY=
+      - SECRET_KEY=
