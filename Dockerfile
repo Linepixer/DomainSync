@@ -5,7 +5,7 @@ FROM python:3.12.3-alpine
 WORKDIR /app
 
 # Software principal y dependencias
-COPY main.py requirements.txt .
+COPY main.py requirements.txt ./
 
 # Instalacion de dependencias
 RUN pip install --no-cache-dir -r requirements.txt
