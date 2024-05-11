@@ -3,4 +3,4 @@ services:
     image: linepixer/domain_sync:latest
     restart: on-failure
     environment:
-      - API_KEY=''
+      - API_KEY=
