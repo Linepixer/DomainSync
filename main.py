@@ -4,7 +4,7 @@ import requests
 from time import sleep
 
 # Version del software
-version = "v2.1"
+version = "v2.2"
 print("Starting DomainSync " + version)
 
 # IP inicial
@@ -51,13 +51,17 @@ def dns_update(new_ip):
             'sub_record_type3':'a',
             'sub_record3':new_ip,
 
-            'subdomain4':'zmail._domainkey',
-            'sub_record_type4':'txt',
-            'sub_record4':'v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCfg3Wi1CNsx0kNG2Pd45uCvXhjItjWVNbXSD3NyRv/t+D4PdVUe7JT3QFmkhrOdTvCM+i3OVGqHguzMRLD7CjDkAsmcEvMP0yrn3L8GdSDzz+TNb5CT8DLGEYJAL5pIJQEDYInNuHVsziqpNwL9zACZeJ0JbKn+OhP2G74IYEIdwIDAQAB',
-            
-            'subdomain5':'_dmarc',
+            'subdomain4':'local',
+            'sub_record_type4':'a',
+            'sub_record4':'192.168.1.250',
+
+            'subdomain5':'zmail._domainkey',
             'sub_record_type5':'txt',
-            'sub_record5':'v=DMARC1; p=quarantine; rua=mailto:diazmatias@linepixer.com; ruf=mailto:diazmatias@linepixer.com; sp=quarantine; adkim=r; aspf=r',
+            'sub_record5':'v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCfg3Wi1CNsx0kNG2Pd45uCvXhjItjWVNbXSD3NyRv/t+D4PdVUe7JT3QFmkhrOdTvCM+i3OVGqHguzMRLD7CjDkAsmcEvMP0yrn3L8GdSDzz+TNb5CT8DLGEYJAL5pIJQEDYInNuHVsziqpNwL9zACZeJ0JbKn+OhP2G74IYEIdwIDAQAB',
+
+            'subdomain6':'_dmarc',
+            'sub_record_type6':'txt',
+            'sub_record6':'v=DMARC1; p=quarantine; rua=mailto:diazmatias@linepixer.com; ruf=mailto:diazmatias@linepixer.com; sp=quarantine; adkim=r; aspf=r',
 
             'ttl':'300'
             }
@@ -69,7 +73,7 @@ def dns_update(new_ip):
             old_public_ip = new_ip
             return
     raise
-    
+
 # Bucle principal
 while True:
     try:
