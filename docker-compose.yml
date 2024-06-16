@@ -1,6 +1,7 @@
 services:
   domain-sync:
     image: linepixer/domain_sync:latest
+    container_name: domainsync
     restart: on-failure
     environment:
       - API_KEY=
